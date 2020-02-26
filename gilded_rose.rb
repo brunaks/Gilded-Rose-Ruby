@@ -19,6 +19,9 @@ class UpdaterFactory
     elsif item.name == 'Backstage passes to a TAFKAL80ETC concert'
       ItemUpdater.new(BackstageQualityUpdater.new(item), SellInUpdater.new(item))
 
+    elsif item.name == "Conjured Mana Cake"
+      ItemUpdater.new(ConjuredItemQualityUpdater.new(item), SellInUpdater.new(item))
+
     else
       ItemUpdater.new(DefaultQualityUpdater.new(item), SellInUpdater.new(item))
     end
@@ -108,6 +111,21 @@ class BackstageQualityUpdater < QualityUpdater
 
     else
       super(1)
+    end
+
+  end
+
+end
+
+class ConjuredItemQualityUpdater < QualityUpdater
+
+  def update
+
+
+    if @item.sell_in < 0
+      super(-4)
+    else
+      super(-2)
     end
 
   end

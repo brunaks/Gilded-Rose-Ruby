@@ -20,7 +20,7 @@ class UpdaterFactory
       BackstagePassUpdater.new(item)
 
     else
-      DefaultUpdater.new(item, DefaultQualityUpdater.new(item))
+      DefaultUpdater.new(item, DefaultQualityUpdater.new(item), SellInUpdater.new(item))
     end
 
   end
@@ -116,9 +116,9 @@ end
 
 class DefaultUpdater
 
-  def initialize item, quality_updater
+  def initialize item, quality_updater, sell_in_updater
     @quality_updater = quality_updater
-    @sell_in_updater = SellInUpdater.new(item)
+    @sell_in_updater = sell_in_updater
   end
 
   def update

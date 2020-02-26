@@ -73,18 +73,16 @@ class BackstagePassUpdater
 
   def update
 
+    @item.sell_in -= 1
     @quality_updater.update(1)
 
-    if @item.sell_in < 11
+    if @item.sell_in < 10
       @quality_updater.update(1)
     end
 
-    if @item.sell_in < 6
+    if @item.sell_in < 5
       @quality_updater.update(1)
     end
-
-
-    @item.sell_in -= 1
 
     if @item.sell_in < 0
 
@@ -124,7 +122,9 @@ class AgedBrieUpdater
       @quality_updater.update(2)
 
     else
+
       @quality_updater.update(1)
+
     end
 
   end

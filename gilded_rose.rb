@@ -14,7 +14,7 @@ class UpdaterFactory
       AgedBrieUpdater.new(item)
 
     elsif item.name == 'Sulfuras, Hand of Ragnaros'
-      SulfurasUpdater.new(item)
+      DefaultUpdater.new(NullUpdater.new, NullUpdater.new)
 
     elsif item.name == 'Backstage passes to a TAFKAL80ETC concert'
       BackstagePassUpdater.new(item)

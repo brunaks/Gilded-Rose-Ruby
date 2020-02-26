@@ -69,6 +69,7 @@ class BackstagePassUpdater
 
   def initialize item
     @item = item
+    @quality_updater = QualityUpdater.new(item)
   end
 
   def update

@@ -76,8 +76,7 @@ class BackstagePassUpdater
 
     item = @item
 
-    if item.quality < 50
-      item.quality += 1
+    @quality_updater.update(1)
 
       if item.sell_in < 11
         if item.quality < 50
@@ -92,7 +91,6 @@ class BackstagePassUpdater
 
       end
 
-    end
 
     item.sell_in -= 1
 

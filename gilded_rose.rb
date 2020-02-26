@@ -7,6 +7,7 @@ def update_quality(items)
 end
 
 
+
 class UpdaterFactory
 
   def make item

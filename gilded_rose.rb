@@ -102,8 +102,6 @@ class SulfurasUpdater
             item.quality -= 1
           end
         end
-      else
-        item.quality = item.quality - item.quality
       end
     end
   end

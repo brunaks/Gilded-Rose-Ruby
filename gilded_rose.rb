@@ -11,7 +11,7 @@ class UpdaterFactory
   def make item
 
     if item.name == 'Aged Brie'
-      AgedBrieUpdater.new(item)
+      DefaultUpdater.new(AgedBrieQualityUpdater.new(item), SellInUpdater.new(item))
 
     elsif item.name == 'Sulfuras, Hand of Ragnaros'
       DefaultUpdater.new(NullUpdater.new, NullUpdater.new)

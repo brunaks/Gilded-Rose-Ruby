@@ -85,6 +85,14 @@ class AgedBrieQualityUpdater < QualityUpdater
 
 end
 
+class NullUpdater
+
+  def update
+
+  end
+
+end
+
 class DefaultUpdater
 
   def initialize item
@@ -135,10 +143,14 @@ end
 class SulfurasUpdater
 
   def initialize item
-    @item = item
+    @sell_in_updater = NullUpdater.new
+    @quality_updater = NullUpdater.new
   end
 
   def update
+
+    @sell_in_updater.update
+    @quality_updater.update
 
   end
 
@@ -156,6 +168,7 @@ class AgedBrieUpdater
 
     @sell_in_updater.update
     @quality_updater.update
+
   end
 
 end

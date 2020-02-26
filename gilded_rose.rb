@@ -117,7 +117,6 @@ end
 class DefaultUpdater
 
   def initialize item
-    @item = item
     @quality_updater = DefaultQualityUpdater.new(item)
     @sell_in_updater = SellInUpdater.new(item)
   end
@@ -134,7 +133,6 @@ end
 class BackstagePassUpdater
 
   def initialize item
-    @item = item
     @quality_updater = BackstageQualityUpdater.new(item)
     @sell_in_updater = SellInUpdater.new(item)
   end
@@ -168,7 +166,6 @@ end
 class AgedBrieUpdater
 
   def initialize item
-    @item = item
     @quality_updater = AgedBrieQualityUpdater.new(item)
     @sell_in_updater = SellInUpdater.new(item)
   end

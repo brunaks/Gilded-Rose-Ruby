@@ -34,7 +34,13 @@ class QualityUpdater
   end
 
   def update quantity
-    @item.quality = [50, @item.quality + quantity].min
+    @item.quality = [50, determine_quality(quantity)].min
+  end
+
+  private
+
+  def determine_quality(quantity)
+    [0, @item.quality + quantity].max
   end
 
 end

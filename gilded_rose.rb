@@ -43,6 +43,7 @@ class DefaultUpdater
 
   def initialize item
     @item = item
+    @quality_updater = QualityUpdater.new(item)
   end
 
   def update
@@ -74,24 +75,22 @@ class BackstagePassUpdater
 
   def update
 
-    item = @item
-
     @quality_updater.update(1)
 
-    if item.sell_in < 11
+    if @item.sell_in < 11
       @quality_updater.update(1)
     end
 
-    if item.sell_in < 6
+    if @item.sell_in < 6
       @quality_updater.update(1)
     end
 
 
-    item.sell_in -= 1
+    @item.sell_in -= 1
 
-    if item.sell_in < 0
+    if @item.sell_in < 0
 
-      @quality_updater.update(-item.quality)
+      @quality_updater.update(-@item.quality)
 
     end
   end

@@ -71,6 +71,20 @@ class DefaultQualityUpdater < QualityUpdater
 
 end
 
+class AgedBrieQualityUpdater < QualityUpdater
+
+  def update
+
+    if @item.sell_in < 0
+      super(2)
+    else
+      super(1)
+    end
+
+  end
+
+end
+
 class DefaultUpdater
 
   def initialize item
@@ -134,24 +148,14 @@ class AgedBrieUpdater
 
   def initialize item
     @item = item
-    @quality_updater = QualityUpdater.new(item)
+    @quality_updater = AgedBrieQualityUpdater.new(item)
     @sell_in_updater = SellInUpdater.new(item)
   end
 
   def update
 
     @sell_in_updater.update
-
-    if @item.sell_in < 0
-
-      @quality_updater.update(2)
-
-    else
-
-      @quality_updater.update(1)
-
-    end
-
+    @quality_updater.update
   end
 
 end

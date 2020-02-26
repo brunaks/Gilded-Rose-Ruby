@@ -84,9 +84,6 @@ class SulfurasUpdater
 
     item = @item
 
-    if item.name != 'Sulfuras, Hand of Ragnaros'
-      item.sell_in -= 1
-    end
   end
 
 end

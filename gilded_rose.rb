@@ -15,7 +15,7 @@ class UpdaterFactory
     else
       DefaultUpdater.new(item)
     end
-    
+
   end
 
 end
@@ -56,20 +56,14 @@ class DefaultUpdater
       item.sell_in -= 1
     end
     if item.sell_in < 0
-      if item.name != "Aged Brie"
-        if item.name != 'Backstage passes to a TAFKAL80ETC concert'
-          if item.quality > 0
-            if item.name != 'Sulfuras, Hand of Ragnaros'
-              item.quality -= 1
-            end
+      if item.name != 'Backstage passes to a TAFKAL80ETC concert'
+        if item.quality > 0
+          if item.name != 'Sulfuras, Hand of Ragnaros'
+            item.quality -= 1
           end
-        else
-          item.quality = item.quality - item.quality
         end
       else
-        if item.quality < 50
-          item.quality += 1
-        end
+        item.quality = item.quality - item.quality
       end
     end
   end

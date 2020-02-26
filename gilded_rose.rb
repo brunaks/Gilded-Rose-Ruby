@@ -45,16 +45,29 @@ class QualityUpdater
 
 end
 
+class SellInUpdater
+
+  def initialize item
+    @item = item
+  end
+
+  def update
+    @item.sell_in -= 1
+  end
+
+end
+
 class DefaultUpdater
 
   def initialize item
     @item = item
     @quality_updater = QualityUpdater.new(item)
+    @sell_in_updater = SellInUpdater.new(item)
   end
 
   def update
 
-    @item.sell_in -= 1
+    @sell_in_updater.update
 
     if @item.sell_in < 0
       @quality_updater.update(-2)
@@ -70,11 +83,12 @@ class BackstagePassUpdater
   def initialize item
     @item = item
     @quality_updater = QualityUpdater.new(item)
+    @sell_in_updater = SellInUpdater.new(item)
   end
 
   def update
 
-    @item.sell_in -= 1
+    @sell_in_updater.update
 
     if @item.sell_in < 0
       @quality_updater.update(-@item.quality)
@@ -111,11 +125,12 @@ class AgedBrieUpdater
   def initialize item
     @item = item
     @quality_updater = QualityUpdater.new(item)
+    @sell_in_updater = SellInUpdater.new(item)
   end
 
   def update
 
-    @item.sell_in -= 1
+    @sell_in_updater.update
 
     if @item.sell_in < 0
 

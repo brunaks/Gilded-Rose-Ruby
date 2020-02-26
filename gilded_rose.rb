@@ -130,38 +130,6 @@ class ItemUpdater
 
 end
 
-class BackstagePassUpdater
-
-  def initialize item
-    @quality_updater = BackstageQualityUpdater.new(item)
-    @sell_in_updater = SellInUpdater.new(item)
-  end
-
-  def update
-
-    @sell_in_updater.update
-    @quality_updater.update
-
-  end
-
-end
-
-class AgedBrieUpdater
-
-  def initialize item
-    @quality_updater = AgedBrieQualityUpdater.new(item)
-    @sell_in_updater = SellInUpdater.new(item)
-  end
-
-  def update
-
-    @sell_in_updater.update
-    @quality_updater.update
-
-  end
-
-end
-
 # DO NOT CHANGE THINGS BELOW -----------------------------------------
 
 Item = Struct.new(:name, :sell_in, :quality)

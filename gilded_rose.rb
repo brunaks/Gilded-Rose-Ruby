@@ -100,13 +100,11 @@ class AgedBrieUpdater
       item.sell_in -= 1
     end
     if item.sell_in < 0
-      if item.name != "Aged Brie"
 
-      else
         if item.quality < 50
           item.quality += 1
         end
-      end
+
     end
   end
 

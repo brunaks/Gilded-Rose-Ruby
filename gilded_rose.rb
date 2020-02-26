@@ -95,7 +95,7 @@ class AgedBrieUpdater
           end
         end
       end
-    end
+
     if item.name != 'Sulfuras, Hand of Ragnaros'
       item.sell_in -= 1
     end

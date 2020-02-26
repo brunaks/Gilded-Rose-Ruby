@@ -84,7 +84,7 @@ class BackstagePassUpdater
     end
     if item.sell_in < 0
 
-        item.quality = item.quality - item.quality
+      item.quality = item.quality - item.quality
 
     end
   end

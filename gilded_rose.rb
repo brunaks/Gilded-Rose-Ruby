@@ -37,11 +37,11 @@ class DefaultUpdater
 
     item = @item
 
-      if item.quality > 0
-        if item.name != 'Sulfuras, Hand of Ragnaros'
-          item.quality -= 1
-        end
+    if item.quality > 0
+      if item.name != 'Sulfuras, Hand of Ragnaros'
+        item.quality -= 1
       end
+    end
 
     if item.name != 'Sulfuras, Hand of Ragnaros'
       item.sell_in -= 1
@@ -54,7 +54,7 @@ class DefaultUpdater
           end
         end
       else
-        item.quality = item.quality - item.quality
+
       end
     end
   end

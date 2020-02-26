@@ -103,7 +103,6 @@ class AgedBrieUpdater
       if item.name != "Aged Brie"
         if item.name != 'Backstage passes to a TAFKAL80ETC concert'
 
-          end
         else
           item.quality = item.quality - item.quality
         end

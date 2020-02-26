@@ -85,9 +85,7 @@ class BackstagePassUpdater
     end
 
     if @item.sell_in < 0
-
       @quality_updater.update(-@item.quality)
-
     end
   end
 

@@ -17,7 +17,7 @@ class UpdaterFactory
       DefaultUpdater.new(NullUpdater.new, NullUpdater.new)
 
     elsif item.name == 'Backstage passes to a TAFKAL80ETC concert'
-      BackstagePassUpdater.new(item)
+      DefaultUpdater.new(BackstageQualityUpdater.new(item), SellInUpdater.new(item))
 
     else
       DefaultUpdater.new(DefaultQualityUpdater.new(item), SellInUpdater.new(item))
@@ -135,23 +135,6 @@ class BackstagePassUpdater
   def initialize item
     @quality_updater = BackstageQualityUpdater.new(item)
     @sell_in_updater = SellInUpdater.new(item)
-  end
-
-  def update
-
-    @sell_in_updater.update
-    @quality_updater.update
-
-  end
-
-end
-
-
-class SulfurasUpdater
-
-  def initialize item
-    @sell_in_updater = NullUpdater.new
-    @quality_updater = NullUpdater.new
   end
 
   def update

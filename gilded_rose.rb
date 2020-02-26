@@ -83,11 +83,7 @@ class BackstagePassUpdater
     end
 
     if item.sell_in < 6
-
-      if item.quality < 50
-        item.quality += 1
-      end
-
+      @quality_updater.update(1)
     end
 
 

@@ -9,8 +9,13 @@ end
 class UpdaterFactory
 
   def make item
-    if item.name == 'Aged Brie' 
-    DefaultUpdater.new(item)
+
+    if item.name == 'Aged Brie'
+      AgedBrieUpdater.new(item)
+    else
+      DefaultUpdater.new(item)
+    end
+    
   end
 
 end

@@ -82,8 +82,6 @@ class SulfurasUpdater
 
   def update
 
-    item = @item
-
   end
 
 end

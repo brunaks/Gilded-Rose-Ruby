@@ -83,15 +83,7 @@ class SulfurasUpdater
   def update
 
     item = @item
-    if item.name != 'Aged Brie' && item.name != 'Backstage passes to a TAFKAL80ETC concert'
-      if item.quality > 0
-        if item.name != 'Sulfuras, Hand of Ragnaros'
-          item.quality -= 1
-        end
-      end
-    else
 
-    end
     if item.name != 'Sulfuras, Hand of Ragnaros'
       item.sell_in -= 1
     end

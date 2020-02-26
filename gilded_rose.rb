@@ -27,6 +27,18 @@ class UpdaterFactory
 
 end
 
+class QualityUpdater
+
+  def initialize item
+    @item = item
+  end
+
+  def update quantity
+    @item.quality = [50, @item.quality + quantity].min
+  end
+
+end
+
 class DefaultUpdater
 
   def initialize item
@@ -72,9 +84,11 @@ class BackstagePassUpdater
         end
       end
       if item.sell_in < 6
+
         if item.quality < 50
           item.quality += 1
         end
+
       end
 
     end
@@ -107,16 +121,14 @@ class AgedBrieUpdater
 
   def initialize item
     @item = item
+    @quality_updater = QualityUpdater.new(item)
   end
 
   def update
 
     item = @item
 
-    if item.quality < 50
-      item.quality += 1
-
-    end
+    @quality_updater.update(1)
 
     item.sell_in -= 1
 

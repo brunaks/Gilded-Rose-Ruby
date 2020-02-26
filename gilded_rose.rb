@@ -126,13 +126,10 @@ class AgedBrieUpdater
 
   def update
 
-    item = @item
-
+    @item.sell_in -= 1
     @quality_updater.update(1)
 
-    item.sell_in -= 1
-
-    if item.sell_in < 0
+    if @item.sell_in < 0
 
       @quality_updater.update(1)
 

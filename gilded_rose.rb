@@ -79,9 +79,8 @@ class BackstagePassUpdater
 
     end
 
-    if item.name != 'Sulfuras, Hand of Ragnaros'
-      item.sell_in -= 1
-    end
+    item.sell_in -= 1
+
     if item.sell_in < 0
 
       item.quality = item.quality - item.quality

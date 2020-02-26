@@ -54,10 +54,11 @@ class DefaultUpdater
 
   def update
 
-    @quality_updater.update(-1)
     @item.sell_in -= 1
 
     if @item.sell_in < 0
+      @quality_updater.update(-2)
+    else
       @quality_updater.update(-1)
     end
   end

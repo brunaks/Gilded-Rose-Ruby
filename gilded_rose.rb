@@ -93,6 +93,27 @@ class NullUpdater
 
 end
 
+class BackstageQualityUpdater < QualityUpdater
+
+  def update
+
+    if @item.sell_in < 0
+      super(-@item.quality)
+
+    elsif @item.sell_in < 5
+      super(3)
+
+    elsif @item.sell_in < 10
+      super(2)
+
+    else
+      super(1)
+    end
+
+  end
+
+end
+
 class DefaultUpdater
 
   def initialize item
@@ -114,26 +135,14 @@ class BackstagePassUpdater
 
   def initialize item
     @item = item
-    @quality_updater = QualityUpdater.new(item)
+    @quality_updater = BackstageQualityUpdater.new(item)
     @sell_in_updater = SellInUpdater.new(item)
   end
 
   def update
 
     @sell_in_updater.update
-
-    if @item.sell_in < 0
-      @quality_updater.update(-@item.quality)
-
-    elsif @item.sell_in < 5
-      @quality_updater.update(3)
-
-    elsif @item.sell_in < 10
-      @quality_updater.update(2)
-
-    else
-      @quality_updater.update(1)
-    end
+    @quality_updater.update
 
   end
 

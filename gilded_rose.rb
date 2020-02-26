@@ -11,16 +11,16 @@ class UpdaterFactory
   def make item
 
     if item.name == 'Aged Brie'
-      DefaultUpdater.new(AgedBrieQualityUpdater.new(item), SellInUpdater.new(item))
+      ItemUpdater.new(AgedBrieQualityUpdater.new(item), SellInUpdater.new(item))
 
     elsif item.name == 'Sulfuras, Hand of Ragnaros'
-      DefaultUpdater.new(NullUpdater.new, NullUpdater.new)
+      ItemUpdater.new(NullUpdater.new, NullUpdater.new)
 
     elsif item.name == 'Backstage passes to a TAFKAL80ETC concert'
-      DefaultUpdater.new(BackstageQualityUpdater.new(item), SellInUpdater.new(item))
+      ItemUpdater.new(BackstageQualityUpdater.new(item), SellInUpdater.new(item))
 
     else
-      DefaultUpdater.new(DefaultQualityUpdater.new(item), SellInUpdater.new(item))
+      ItemUpdater.new(DefaultQualityUpdater.new(item), SellInUpdater.new(item))
     end
 
   end
@@ -114,7 +114,7 @@ class BackstageQualityUpdater < QualityUpdater
 
 end
 
-class DefaultUpdater
+class ItemUpdater
 
   def initialize quality_updater, sell_in_updater
     @quality_updater = quality_updater

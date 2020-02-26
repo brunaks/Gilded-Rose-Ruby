@@ -70,7 +70,7 @@ class DefaultUpdater
 
 end
 
-class DefaultUpdater
+class AgedBrieUpdater
 
   def initialize item
     @item = item

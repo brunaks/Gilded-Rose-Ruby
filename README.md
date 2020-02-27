@@ -1,3 +1,8 @@
+# The Gilded Rose Kata refactored with TCR
+
+This is the Gilded Rose kata refactoring using Test && Commit || Revert (TCR).
+For the requirements, check below or the original [repo](https://github.com/jimweirich/gilded_rose_kata) from where this was cloned.
+
 # The Gilded Rose Code Kata
 
 This is a Ruby version of the Gilded Rose Kata, found
